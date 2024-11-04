@@ -1,21 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Grifter&family=Kanit:wght@400;700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #0B0B0B;
+    --background-menu-Modal: #1d1b1b;
+    --font-color: rgba(221, 208, 208, 0.6);
+    --font-grifter: 'Grifter', sans-serif;
+    --font-kanit: 'Kanit', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.bg-custom {
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(11, 11, 11, 1) 53%, rgba(41, 176, 255, 0.05) 60%, rgba(41, 176, 255, 0.1) 67%, rgba(41, 176, 255, 0.2) 74%, rgba(41, 176, 255, 0.4) 81%, rgba(41, 176, 255, 0.6) 87%, rgba(41, 176, 255, 0.8) 92%, rgba(41, 176, 255, 1) 100%);
 }
+
+
+
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+
+}
+
+.page-one {
+    height: 100vh;
+    background: rgb(1, 137, 234);
+    background: radial-gradient(circle, rgba(1, 137, 234, 0.8127626050420168) 0%, rgba(1, 137, 234, 0.76234243697479) 4%, rgba(11, 11, 11, 1) 34%);
+    /* Mengatur tinggi halaman menjadi 100% dari tinggi viewport */
+}
+
+.page-two {
+    height: 100vh;
+    /* Mengatur tinggi halaman menjadi 100% dari tinggi viewport */
+}
+
+
+.page-one-card-one {
+    background: linear-gradient(190deg, rgba(1, 137, 234, 0) 5%, rgba(1, 137, 234, 0.05) 12%, rgba(1, 137, 234, 0.05) 24%, rgba(1, 137, 234, 0.1) 42%, rgba(1, 137, 234, 0.2) 52%, rgba(1, 137, 234, 0.4) 61%, rgba(1, 137, 234, 0.6) 76%, rgba(1, 137, 234, 0.8) 90%, rgba(1, 137, 234, 1) 100%);
+}
+
+.page-one-card-two {
+    background: radial-gradient(circle at bottom, rgb(29, 85, 38) 0%, rgba(0, 0, 0, 0.1) 50%);
+    overflow: hidden;
+    /* Ensures no overflow outside the bounds */
+}
+
+
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-grifter);
+}
+
+p,
+button,
+h3 {
+    font-family: var(--font-kanit);
+    color: var(--font-color);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Adjust this based on the width of the images */
+    }
+}
+
+.animate-marquee {
+    animation: marquee 40s linear infinite;
+    /* Adjust duration as needed */
+    white-space: nowrap;
+    /* Prevent line breaks */
+}
+
+
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-42%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(35%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.3s forwards;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.4s forwards;
+}
+
+@keyframes bounceSlow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        /* Mulai dan akhir di posisi awal */
+    }
+
+    50% {
+        transform: translateY(-10px);
+        /* Naik 10px */
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounceSlow 2s infinite;
+    /* Atur waktu animasi agar lambat */
+}
+
+@keyframes bounceSlow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounceSlow 2s infinite;
+}
+
+.delay-1 {
+    animation-delay: 0s;
+    animation-duration: 2.5s;
+}
+
+.delay-2 {
+    animation-delay: 0.5s;
+    animation-duration: 2.2s;
+}
+
+.delay-3 {
+    animation-delay: 1s;
+    animation-duration: 2.7s;
+}
+
+circle,
+rect,
+line {
+    stroke-width: 3px;
+    stroke-linecap: round;
+    fill: transparent;
 }
