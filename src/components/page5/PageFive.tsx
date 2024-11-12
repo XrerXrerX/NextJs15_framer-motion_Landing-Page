@@ -35,10 +35,10 @@ export default function PageFive() {
                             margin: "-40%", // Adjust viewport margin to control when it appears
                         }}
                         className=" 2xl:w-2/5 xl:w-11/12 lg:w-11/12 md:w-11/12 xs:w-full sm:w-full"> {/* Kolom 2: 40% */}
-                        <p className="2xl:text-6xl xl:text-6xl lg:text-6xl md:text-5xl xs:text-2xl sm:text-2xl  font-semibold inline-block bg-gradient-to-r from-white to-sky-500 bg-clip-text text-transparent whitespace-nowrap mb-2 " >
+                        <p className="2xl:text-5xl xl:text-6xl lg:text-6xl md:text-5xl xs:text-2xl sm:text-2xl  font-semibold inline-block bg-gradient-to-r from-white to-sky-500 bg-clip-text text-transparent whitespace-nowrap mb-2 " >
                             Website Development
                         </p>
-                        <p className="2xl:text-4xl xl:text-4xl lg:text-4xl md:text-4xl xs:text-md sm:text-xl text-slate-200">
+                        <p className="2xl:text-3xl xl:text-4xl lg:text-4xl md:text-4xl xs:text-md sm:text-xl text-slate-200">
                             Digitalisasi untuk Pertumbuhan Bisnis
                         </p>
                         <p className="2xl:text-base xl:text-base lg:text-base md:text-sm xs:text-xxss sm:text-base text-slate-300 mb-3">
