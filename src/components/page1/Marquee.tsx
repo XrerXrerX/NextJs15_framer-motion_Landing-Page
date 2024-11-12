@@ -1,3 +1,4 @@
+import { div } from "framer-motion/client";
 import Marquee from "react-fast-marquee";
 
 export default function Marque() {
@@ -14,25 +15,27 @@ export default function Marque() {
     ];
 
     return (
-        <>
-            <div className="flex-grow p-12"></div>
-            <div className="flex-grow p-12"></div>
-            <p className="text-white text-center mb-4">
-                Teknologi Yang Kami Gunakan
-            </p>
-            <div className="w-full bg-dark dark:bg-[#1a1a1a]  mt-6">
-                <div className="relative overflow-hidden  max-w-[1000px] mx-auto px-8 flex flex-col justify-center items-start h-full">
-                    <Marquee speed={30} gradient={true} gradientColor='rgba(41, 169, 290, 1)' autoFill={true}>
-                        <div className="flex justify-between">
-                            {logos.map((url, index) => (
-                                <div className="flex flex-col items-center justify-center h-full max-w-[150px] mr-32" key={index}>
-                                    <img src={url} alt={`Skill ${index + 1}`} />
-                                </div>
-                            ))}
-                        </div>
-                    </Marquee>
+        <div className="flex flex-col ">
+            {/* Konten lainnya di atas */}
+            <div className="flex-grow">
+                {/* Elemen lain di atas */}
+                <p className="text-white text-center mb-4">
+                    Teknologi Yang Kami Gunakan
+                </p>
+                <div className="w-full bg-dark dark:bg-[#1a1a1a] mt-6">
+                    <div className="relative overflow-hidden w-full mx-auto flex flex-col justify-center items-start h-full">
+                        <Marquee speed={30} gradient={true} gradientColor="rgba(40, 173, 250, 1)" autoFill={true}>
+                            <div className="flex justify-between">
+                                {logos.map((url, index) => (
+                                    <div className="flex flex-col items-center justify-center h-full max-w-[150px] mr-28" key={index}>
+                                        <img src={url} alt={`Skill ${index + 1}`} />
+                                    </div>
+                                ))}
+                            </div>
+                        </Marquee>
+                    </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

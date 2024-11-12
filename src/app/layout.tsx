@@ -1,5 +1,4 @@
 import './globals.css'
-import Navbar from "@/components/page1/Navbar"
 
 
 export default function Layout({
@@ -10,8 +9,7 @@ export default function Layout({
   return (
     <html>
       <body>
-        <div className="bg-custom">
-          <Navbar />
+        <div>
           {children}
         </div>
 

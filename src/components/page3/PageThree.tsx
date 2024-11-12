@@ -1,4 +1,4 @@
-
+"use client";
 import Marquee from "react-fast-marquee";
 
 const tof = [
@@ -32,29 +32,25 @@ export default function PageThree() {
     return (
         <div className="bg-transparent text-slate-200  rounded-lg mt-12 pt-10 flex flex-col items-center h-full">
             <div className="flex flex-col w-full mt-8 ">
-                <div className="flex mb-4 gap-2 ">
-                    <div className="w-1/2 p-8" > {/* Kolom 1: 60% */}
+                <div className="flex  mb-4 gap-2  items-center ">
+                    <div className="justify-center items-center 2xl:w-3/4 xl:w-3/4 p-8 lg:w-full w-full" > {/* Kolom 1: 60% */}
                         <p
-                            className=" inline-block text-xl bg-gradient-to-r from-white to-sky-500 bg-clip-text text-transparent whitespace-nowrap">Portofoio</p>
-                        <p className="text-xl text-slate-200">Proyek Yang Mendorong Bisnis Anda Maju</p>
-                        <p
-                            className="text-slate-400">Telusuri portofolio kami untuk melihat bagaimana kami membantu
-                            <br />
-                            klien dari berbagai industri mencapai tujuan bisnis mereka melalui
-                            <br />
-                            solusi digital yang inovatif dan tepat sasaran. Temukan inspirasi
-                            <br />
-                            untuk proyek Anda berikutnya!</p>
+                            className=" inline-block text-xl lg:text-5xl bg-gradient-to-r from-white to-sky-500 bg-clip-text text-transparent whitespace-nowrap">Portofolio</p>
+                        <p className="text-3xl lg:text-3xl sm:text-2xl xs:text-xl lg:font-bold text-slate-200 ">Proyek Yang Mendorong Bisnis Anda Maju</p>
+                        <p className="text-md xl:text-base text-slate-200 lg:text-xl lg:mt-2 sm:text-xs xs:text-xxs ">
+                            Telusuri portofolio kami untuk melihat bagaimana kami membantu klien dari berbagai
+                            <br />   industri mencapai tujuan bisnis mereka melalui solusi digital yang inovatif
+                            <br />  dan tepat sasaran. Temukan inspirasi untuk proyek Anda berikutnya!
+                        </p>
 
 
-                        <div className="space-y-3 mt-3 mr-8">
+                        <div className="space-y-3 mt-4 mr-8 hidden 2xl:block xl:block lg:block md:block sm:block">
                             {/* First Row */}
-                            <div className="flex justify-start gap-2">
+                            <div className="flex justify-start 2xl:gap-4 xs:gap-2">
                                 {rowOneWords.map((word, index) => (
                                     <div
                                         key={index}
-                                        className="border border-slate-300 bg-transparent text-slate-200 text-center px-4 py-2 rounded-xl text-sm"
-
+                                        className="border border-slate-300 2xl:text-lg xl:text-lg lg:text-lg md:text-base  xs:text-xxss bg-transparent text-slate-200 text-center 2xl:px-4 xl:px-4 lg:px-4 md:px-2 xs:px-2 2xl:py-2 xl:py-2 lg:py-2 md:py-1 xs:py-1 rounded-xl font-bold "
                                     >
                                         {word}
                                     </div>
@@ -62,22 +58,26 @@ export default function PageThree() {
                             </div>
 
                             {/* Second Row */}
-                            <div
-                                className="flex justify-start gap-2">
+                            <div className="flex justify-start gap-4">
                                 {rowTwoWords.map((word, index) => (
-                                    <div
+                                    <button
                                         key={index}
-                                        className="border border-slate-300 bg-transparent text-slate-200 text-center px-4 py-2 rounded-xl text-sm"
+                                        className={`border border-slate-300  text-center 2xl:text-lg xl:text-lg lg:text-lg md:text-base  xs:text-xxss  2xl:py-2 xl:py-2 lg:py-2 md:py-1 xs:py-1 2xl:px-4 xl:px-4 lg:px-4 md:px-2 xs:px-2 rounded-xl font-bold cursor-pointer transition-colors duration-200 ${index === rowOneWords.length - 1
+                                            ? "bg-white text-black" // Background putih dan teks hitam untuk item terakhir
+                                            : "bg-transparent text-slate-200 hover:bg-slate-700 hover:text-white" // Style default dengan hover effect
+                                            }`}
+                                        onClick={() => console.log(`Clicked on ${word}`)} // Tambahkan aksi klik di sini
                                     >
                                         {word}
-                                    </div>
+                                    </button>
                                 ))}
                             </div>
                         </div>
 
 
+
                     </div>
-                    <div className=" w-1/2"> {/* Kolom 2: 40% */}
+                    <div className=" w-3/4 hidden 2xl:block xl:block"> {/* Kolom 2: 40% */}
                         <div className="w-full bg-dark dark:bg-[#1a1a1a] ">
                             <div className="relative overflow-hidden  max-w-[1000px] mx-auto flex flex-col justify-center items-start h-full">
                                 <Marquee speed={60} gradient={true} gradientColor='#0B0B0B' autoFill={true}>

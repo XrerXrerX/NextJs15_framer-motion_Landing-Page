@@ -28,7 +28,7 @@ export default function Navbar() {
         };
     }, [isModalOpen]);
     return (
-        <nav className="p-4 shadow-md">
+        <nav className="p-4 shadow-md bg-[#000000]">
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo on the Left */}
                 <div className="flex items-center">
@@ -38,10 +38,10 @@ export default function Navbar() {
                 {/* Centered Menu */}
                 <div className="hidden md:flex space-x-9 text-lg text-gray-700 ml-40">
                     <a href="#" className=""><p className="hover:text-white">Beranda</p></a>
-                    <a href="#" onClick={openModal} className="cursor-pointer"><p className="hover:text-white">Layanan&nbsp;></p></a>
-                    <a href="#" className=""><p className="hover:text-white">Portfolio</p></a>
+                    <a href="#" onClick={openModal} className="cursor-pointer"><p className="hover:text-white">Layanan&nbsp;  </p></a>
+                    {/* <a href="#" className=""><p className="hover:text-white">Portfolio</p></a> */}
                     <a href="#" className=""><p className="hover:text-white">Kontak</p></a>
-                    <a href="#" className=""><p className="hover:text-white">Konsultasi Gratis</p></a>
+                    {/* <a href="#" className=""><p className="hover:text-white">Konsultasi Gratis</p></a> */}
                 </div>
 
                 {/* Right Button with Icon */}
@@ -51,8 +51,11 @@ export default function Navbar() {
                         <path d="M13 10h7v7h-7zM4 4h7v7H4z" />
                         <path fill="none" d="M0 0h24v24H0z" />
                     </svg> */}
-                        <p className="text-2xl"><span>Discuss the Project</span></p>
+                        <div>
+                            <p className="text-2xl lg:block"><span>Discuss Project</span></p>
+                        </div>
                         <img src="/arrow.png" alt="Logo" className="h-6 w-auto mr-4" />
+
                     </button>
                 </div>
             </div>

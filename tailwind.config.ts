@@ -12,12 +12,15 @@ const config: Config = {
         'custom-modal': 'var(--background-menu-Modal)',
       },
       fontSize: {
+        'mini': '0.425rem', // 10px
         'tiny': '0.525rem', // 10px
+        'xxss': '0.625rem', // 10px
         'xxs': '0.75rem',   // 12px
       },
     },
     screens: {
-      'sm': '640px',
+      'xs': '359px',
+      'sm': '520px',
       // => @media (min-width: 640px) { ... }
 
       'md': '768px',

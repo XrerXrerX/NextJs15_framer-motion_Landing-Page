@@ -6,11 +6,11 @@ import {
 } from "framer-motion"
 
 
-export default function PageFive() {
+export default function PageSeven() {
     return (
         <div className="bg-transparent text-slate-200 mt-[150px] flex flex-col items-center justify-center h-full">
-            <div className="flex  items-center justify-center w-5/6">
-                <div className="flex 2xl:flex-row xl:flex-col lg:flex-col md:flex-col xs:flex-col sm:flex-col items-center justify-evenly mb-4 h-full  w-full gap-2">
+            <div className="flex flex-col items-center justify-center 2xl:w-5/6 xl:w-5/6 lg:w-5/6 md:w-full xs:w-full sm:w-full">
+                <div className="flex 2xl:flex-row xl:flex-row lg:flex-col md:flex-col xs:flex-col sm:flex-col items-center justify-evenly mb-4 h-full  w-full gap-2">
 
                     <motion.div
                         initial={{
@@ -32,25 +32,26 @@ export default function PageFive() {
                             }
                         }}
                         viewport={{
-                            margin: "-40%", // Adjust viewport margin to control when it appears
+                            margin: "-10%", // Adjust viewport margin to control when it appears
                         }}
-                        className=" 2xl:w-2/5 xl:w-11/12 lg:w-11/12 md:w-11/12 xs:w-full sm:w-full"> {/* Kolom 2: 40% */}
+                        className="2xl:w-3/5 xl:w-3/5 lg:w-11/12 md:w-11/12 xs:w-11/12 sm:w-11/12"
+                    >
                         <p className="2xl:text-6xl xl:text-6xl lg:text-6xl md:text-5xl xs:text-2xl sm:text-2xl  font-semibold inline-block bg-gradient-to-r from-white to-sky-500 bg-clip-text text-transparent whitespace-nowrap mb-2 " >
-                            Website Development
+                            visual design & branding
                         </p>
-                        <p className="2xl:text-4xl xl:text-4xl lg:text-4xl md:text-4xl xs:text-md sm:text-xl text-slate-200">
-                            Digitalisasi untuk Pertumbuhan Bisnis
+                        <p className="2xl:text-4xl xl:text-4xl lg:text-4xl md:text-4xl xs:text-lg sm:text-xl text-slate-200">
+                            Solusi Visual Terbaik untuk Bisnis Anda
                         </p>
                         <p className="2xl:text-base xl:text-base lg:text-base md:text-sm xs:text-xxss sm:text-base text-slate-300 mb-3">
-                            Memiliki website yang optimal bukan hanya sekadar pilihan,
+                            Identitas brand adalah jantung dari sebuah bisnis, mencerminkan nilai,
                             <br />
-                            tetapi sebuah keharusan untuk mendorong pertumbuhan bisnis.
+                            visi, dan keunikan yang membedakan Anda dari kompetitor. Kami dapat
                             <br />
-                            Digitalisasi memberikan kesempatan bagi bisnis Anda untuk
+                            membantu menciptakan identitas brand yang kuat dan konsisten
                             <br />
-                            menjangkau konsumen yang lebih luas.
+                            melalui logo, warna, tipografi, dan elemen visual lainnya
                         </p>
-                        <button className="bg-sky-500 text-white 2xl:pl-2 xl:pl-2 lg:pl-2 md:pl-2 xs:pl-2 sm:pl-2 2xl:py-1 xl:py-1 lg:py-1 md:py-1 xs:py-1 sm:py-1 2xl:px-1 xl:px-1 lg:px-1 md:px-1 xs:px-1 sm:px-1  rounded-full 2xl:text-sm xl:text-sm lg:text-sm md:text-xs xs:text-xxs sm:text-xs font-light flex items-center gap-2 border border-transparent transition duration-300 hover:bg-transparent hover:border-sky-500">
+                        <button className="bg-sky-500 text-white pl-3 rounded-full text-sm font-light flex items-center gap-2 border border-transparent transition duration-300 hover:bg-transparent hover:border-sky-500">
                             Konsultasi Sekarang
                             <span className="rounded-full bg-[#0B0B0B]">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24">
@@ -60,7 +61,7 @@ export default function PageFive() {
                         </button>
 
                     </motion.div>
-                    <div className="flex mt-4 relative justify-around">
+                    <div className=" flex mt-4 relative justify-around">
 
                         {/* <div className="flex space-x-[-40px] mt-4 relative ml-12 "> Mengatur jarak antar gambar */}
 
@@ -86,9 +87,9 @@ export default function PageFive() {
                             viewport={{
                                 margin: "-10%", // Adjust viewport margin to control when it appears
                             }}
-                            src="/pagefiveasset/img1.png"
+                            src="/pagesevenasset/kr.png"
                             alt="Gambar 1"
-                            className="2xl:max-w-[550px] xl:max-h-[800px] lg:max-h-[500px] xs:max-h-[250px] sm:max-h-[400px] z-10 md:max-h-[400px]   rounded-xl"
+                            className=" 2xl:max-h-[600px] xl:max-h-[600px] lg:max-h-[500px] md:max-h-[400px] xs:max-h-[300px] sm:max-h-[400px] z-10   rounded-xl"
                             style={{ objectFit: "cover" }}
                         />
 
@@ -114,15 +115,14 @@ export default function PageFive() {
                             viewport={{
                                 margin: "-20%", // Menyesuaikan margin viewport
                             }}
-                            src="/pagefiveasset/fr.png"
+                            src="/pagesevenasset/lg.png"
                             alt="Gambar 2"
-                            className="absolute 2xl:max-w-[1050px] lg:max-w-[1050px] xl:max-w-[1050px] md:max-w-[1050px] sm:max-w-[1050px] xs:max-w-[1050px] xl:max-h-[450px] 2xl:max-h-[500px] md:max-h-[400px] sm:max-h-[570px] mr-10 z-30 rounded-xl
-                            hidden 2xl:block xl:block lg:block md:block "
+                            className="absolute 2xl:max-w-[1050px] xl:max-w-[1050px] lg:max-w-[900px] md:max-w-[900px] xs:max-w-[600px] sm:max-w-[700px] mr-10 z-30 rounded-xl hidden 2xl:block xl:block"
                             style={{ objectFit: "cover" }}
                         />
 
 
-                        <div className="flex flex-col items-center justify-start h-full">
+                        <div className="flex justify-center items-center">
 
 
                             <motion.img
@@ -147,33 +147,50 @@ export default function PageFive() {
                                 viewport={{
                                     margin: "-30%", // Adjust viewport margin to control when it appears
                                 }}
-                                src="/pagefiveasset/img2.png"
+                                src="/pagesevenasset/mid.png"
                                 alt="Gambar 2"
-                                className=" 2xl:max-h-[800px] xl:max-h-[500px] lg:max-h-[500px] md:max-h-[400px]  sm:max-h-[400px] xs:max-h-[200px]    z-10   rounded-xl"
+                                className="2xl:max-h-[600px] xl:max-h-[500px] lg:max-h-[300px] md:max-h-[200px] xs:max-h-[150px] sm:max-h-[200px] z-10 rounded-xl"
                                 style={{ objectFit: "cover" }}
                             />
-                            <img
-                                src="/pagefiveasset/img2b.png"
-                                alt="Gambar 2"
-                                className=" z-10 md:max-w-[300px] 2xl:max-w-[400px] xl:max-w-[400px] lg:max-w-[400px] xs:max-w-[230px] sm:max-w-[300px]   absolute  bottom-12 pl-10 rounded-xl"
-                                style={{ objectFit: "cover" }}
-                            />
-                            <img
-                                src="/pagefiveasset/rock.png"
-                                alt="Gambar 2"
-                                className="2xl:w-[180px] xl:w-[120px] lg:w-[120px] xs:w-[90px] sm:w-[150px]  2xl:max-h-[250px] xl:max-h-[250px] md:w-[160px] lg:max-h-[250px] xs:max-h-[120px] sm:max-h-[190px] z-20  bottom-2  rounded-xl"
-                                style={{
-                                    objectFit: "cover",
-                                    position: "absolute",
-                                    bottom: "-50px",  // Offset from the bottom
-                                    right: "150px",   // Offset from the right
+                            <motion.img
+                                initial={{
+                                    y: -50, // Start slightly below
+                                    opacity: 0.5, // Start as transparent
                                 }}
+                                whileInView={{
+                                    y: 0, // Move to normal position
+                                    opacity: 1, // Fade in to full opacity
+                                }}
+                                transition={{
+                                    y: {
+                                        type: "spring", // Smooth spring effect
+                                        stiffness: 100, // Spring stiffness control
+                                        damping: 10, // Slow down the spring effect
+                                    },
+                                    opacity: {
+                                        duration: 0.3, // Duration for opacity transition
+                                    }
+                                }}
+                                viewport={{
+                                    margin: "-30%", // Adjust viewport margin to control when it appears
+                                }}
+                                src="/pagesevenasset/toop.png"
+                                alt="Gambar 2"
+                                className="2xl:w-[300px] xl:w-[300px] lg:w-[200px] md:w-[180px] xs:w-[100px] sm:w-[100px] z-10  absolute top-20  rounded-xl"
+                                style={{ objectFit: "cover" }}
                             />
+                            <img
+                                src="/pagesevenasset/bt.png"
+                                alt="Gambar 2"
+                                className=" absolute bottom-[-20px] md:bottom-[-100px]  xs:bottom-[-50px] 2xl:right-[120px] xl:right-[150px] lg:right-[100px] md:right-[100px] xs:right-[60px] sm:right-[100px] 2xl:w-[160px] xl:w-[130px] lg:w-[150px] md:w-[120px] xs:w-[80px] sm:w-[100px]  z-20  rounded-xl"
 
-
+                            />
+                            <img
+                                src="/pagesevenasset/stl.png"
+                                alt="Gambar 2"
+                                className=" 2xl:max-h-[350px] xl:max-h-[350px] lg:max-h-[300px] md:max-h-[300px] xs:max-h-[200px] sm:max-h-[200px] z-20 2xl:bottom-[-10px] xl:bottom-[-10px] lg:bottom-[-10px] md:bottom-[-50px] xs:bottom-[-50px] sm:bottom-[-10px] 2xl:left-[150px] xl:left-[150px] lg:left-[140px] md:left-[100px] xs:left-[70px] sm:left-[120px]  rounded-xl absolute"
+                            />
                         </div>
-
-
 
                         <motion.img
                             initial={{
@@ -197,9 +214,9 @@ export default function PageFive() {
                             viewport={{
                                 margin: "-15%", // Adjust viewport margin to control when it appears
                             }}
-                            src="/pagefiveasset/img3.png"
+                            src="/pagesevenasset/kn.png"
                             alt="Gambar 3"
-                            className=" 2xl:max-h-[760px] xl:max-h-[500px] lg:max-h-[500px] xs:max-h-[250px] sm:max-h-[400px]  md:max-h-[400px]  top-10 z-10  relative "
+                            className=" 2xl:max-h-[800px] xl:max-h-[800px] lg:max-h-[500px] md:max-h-[400px] xs:max-h-[300px] sm:max-h-[400px] top-10 z-10  relative "
                             style={{
                                 objectFit: "cover",
                             }}
@@ -207,9 +224,6 @@ export default function PageFive() {
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
+        </div >
     )
 }

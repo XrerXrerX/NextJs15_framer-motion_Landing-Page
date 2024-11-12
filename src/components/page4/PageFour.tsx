@@ -2,11 +2,8 @@
 
 import React from "react";
 import {
-    motion,
-    useInView,
-    useMotionValueEvent,
-    useScroll,
-    useTransform
+    motion
+
 } from "framer-motion"
 
 
@@ -27,12 +24,12 @@ export default function PageFour() {
     ];
 
     return (
-        <div className="relative flex justify-center items-center h-screen overflow-hidden">
+        <div className="relative flex justify-center items-center h-screen overflow-hidden 2xl:mt-12 xl:mt-12 lg:mt-12 md:mt-12 sm:mt-2 xs:mt-12">
             {/* Concentric Circles */}
             {/* Concentric Circles */}
             {[...Array(12)].map((_, i) => {
                 // Define specific angles for each image position
-                const angles = [null, null, 0, 190, 40, 320, 150, 200, 20, 170, 190];
+                const angles = [null, null, 320, 190, 40, 320, 150, 200, 20, 170, 190];
                 const angle = angles[i] || 0; // Default to 0 if there aren't enough angles
                 const imageSrc = images[i % images.length]; // Cycle through images
                 if (angles[i] === null) {
@@ -68,7 +65,7 @@ export default function PageFour() {
                                 scale: {
                                     type: "spring", // Efek pegas untuk transisi halus
                                     stiffness: 100, // Stiffness untuk kontrol efek pegas
-                                    damping: 10, // Pengurangan kecepatan pegas
+                                    damping: 20, // Pengurangan kecepatan pegas
                                 },
                                 opacity: {
                                     duration: 0.3, // Durasi transisi opacity
@@ -122,7 +119,7 @@ export default function PageFour() {
                             scale: {
                                 type: "spring", // Efek pegas untuk transisi halus
                                 stiffness: 100, // Stiffness untuk kontrol efek pegas
-                                damping: 10, // Pengurangan kecepatan pegas
+                                damping: 20, // Pengurangan kecepatan pegas
                             },
                             opacity: {
                                 duration: 0.3, // Durasi transisi opacity
@@ -145,7 +142,7 @@ export default function PageFour() {
                         {/* Position Image at Specific Angle without rotating it */}
                         <img
                             src={imageSrc}
-                            className="w-12 h-12 rounded-full absolute"
+                            className="2xl:w-12 xl:w-12 lg:w-12 md:w-12 sm:w-12 xs:w-12 2xl:h-12 xl:h-12 lg:h-12 md:h-12 sm:h-12 xs:h-12 rounded-full absolute"
                             style={{
                                 transform: `rotate(${angle}deg) translate(${(150 + i * 150) / 2}px) rotate(${-angle}deg)`, // Cancels the rotation effect
                             }}
@@ -165,12 +162,12 @@ export default function PageFour() {
                     className="w-20 h-20 rounded-full mb-4" // Add spacing below image if needed
                 />
 
-                <p className="text-3xl font-semibold text-slate-200">Mengapa Bisnis Anda Butuh</p>
+                <p className="2xl:text-3xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-2xl font-semibold text-slate-200 xs:text-2xl">Mengapa Bisnis Anda Butuh</p>
                 <p className="text-3xl font-semibold inline-block bg-gradient-to-r from-white to-sky-500 bg-clip-text text-transparent whitespace-nowrap mb-2">
                     Sentuhan Digital
                 </p>
 
-                <p className="text-slate-200 mb-1 text-sm">
+                <p className="text-slate-200 mb-1 2xl:text-sm xl:text-sm lg:text-sm md:text-xs xs:text-xs sm:text-sm">
                     Di era digital saat ini, konsumen lebih sering mencari produk dan jasa melalui internet. Bisnis
                     yang memiliki website akan lebih mudah ditemukan dan dipercaya oleh pelanggan, karena website
                     berfungsi seperti toko atau kantor online yang selalu siap melayani selama 24 jam tanpa henti.
