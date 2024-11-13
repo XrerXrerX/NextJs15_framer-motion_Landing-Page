@@ -51,13 +51,14 @@ html {
 
 body {
     background-color: var(--background);
-    overflow: auto;
+    overflow: hidden;
 
 }
 
 ::-webkit-scrollbar {
     display: none;
     /* Menyembunyikan scrollbar */
+    
 }
 
 .page-one {

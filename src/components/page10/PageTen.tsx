@@ -18,13 +18,13 @@ export default function PageTen() {
 
                     Ingin tahu lebih banyak?
                 </h1>
-                <p className="2xl:text-2xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-lg xs:text-xs text-slate-300 text-center">
+                <p className="2xl:text-2xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-lg xs:text-lg text-slate-300 text-center">
                     Kami siap membantu Anda 24/7
                 </p>
             </div>
 
 
-            <div className="2xl:w-1/2 xl:w-1/2 lg:w-full md:w-full xs:w-full sm:w-full bg-[#161f27] border-2 border-slate-600 p-12 rounded-lg">
+            <div className="2xl:w-1/2 xl:w-1/2 lg:w-full md:w-full xs:w-11/12 sm:w-full bg-[#161f27] border-2 border-slate-600 2xl:p-12 xl:p-12 lg:p-12 md:p-12 xs:p-5 sm:p-5 rounded-lg">
                 <h2 className="2xl:text-xl xl:text-lg lg:text-lg md:text-lg xs:text-xs font-semibold text-slate-200 mb-4">
                     Konsultasikan kebutuhan digital Anda bersama kami dan isi form di bawah untuk memulai langkah besar Anda!
                 </h2>
