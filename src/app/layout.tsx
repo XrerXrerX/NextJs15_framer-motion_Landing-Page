@@ -1,20 +1,18 @@
-import './globals.css'
+/** @format */
 
+import "./globals.css";
+import { Head } from "next/document";
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html>
+      <Head>
+        {/* Tambahkan tag meta di sini */}
+        <meta name="google-adsense-account" content="ca-pub-2113469480437461" />
+      </Head>
       <body>
-        <div>
-          {children}
-        </div>
-
+        <div>{children}</div>
       </body>
     </html>
-
-  )
+  );
 }
