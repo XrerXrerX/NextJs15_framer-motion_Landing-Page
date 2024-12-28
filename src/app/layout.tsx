@@ -1,15 +1,18 @@
 /** @format */
 
 import "./globals.css";
-import Head from "next/head";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Lintas Inovasi Global",
+  description: "LIGAL",
+};
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
-      <Head>
-        {/* Tambahkan tag meta di sini */}
+    <html lang="en">
+      <head>
         <meta name="google-adsense-account" content="ca-pub-2113469480437461" />
-      </Head>
+      </head>
       <body>
         <div>{children}</div>
       </body>
