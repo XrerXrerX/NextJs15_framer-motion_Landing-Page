@@ -1,7 +1,7 @@
 /** @format */
 
 import "./globals.css";
-import { Head } from "next/document";
+import Head from "next/head";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
