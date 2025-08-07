@@ -218,6 +218,100 @@ h3 {
   animation: bounceSlow 2s infinite;
 }
 
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes border-rotate {
+  0% {
+    background: conic-gradient(from 0deg, #0ea5e9, #f1f5f9, #0ea5e9);
+  }
+  100% {
+    background: conic-gradient(from 360deg, #0ea5e9, #f1f5f9, #0ea5e9);
+  }
+}
+
+.animate-border-rotate {
+  animation: border-rotate 3s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes border-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-border-gradient-shift {
+  background: linear-gradient(
+    90deg,
+    #0ea5e9,
+    rgba(56, 189, 248, 0.8),
+    #0ea5e9,
+    rgba(56, 189, 248, 0.8),
+    #0ea5e9
+  );
+  background-size: 300% 100%;
+  animation: border-gradient-shift 3s ease infinite;
+  border: 2px solid transparent;
+  background-clip: border-box;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes twinkle-delayed {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.star-delayed {
+  animation: twinkle-delayed 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
 .delay-1 {
   animation-delay: 0s;
   animation-duration: 2.5s;

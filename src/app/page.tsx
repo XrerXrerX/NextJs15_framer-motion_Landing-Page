@@ -1,5 +1,6 @@
 /** @format */
 
+"use client";
 import Header from "@/components/page1/Header";
 import Marque from "@/components/page1/Marquee";
 import PageTwo from "@/components/page2/PageTwo";
@@ -26,13 +27,13 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="page-frone">
+      <div id="layanan" className="page-frone">
         <PageTwo />
       </div>
-      <div className="page-two">
+      <div id="portofolio" className="page-two">
         <PageThree />
       </div>
-      <div className="page-two hidden 2xl:block">
+      <div id="explore" className="page-two hidden 2xl:block">
         <PageFour />
       </div>
 
@@ -53,7 +54,7 @@ export default function Page() {
       <div className="hidden">
         <PageNine />
       </div>
-      <div className="">
+      <div id="contact" className="">
         <PageTen />
       </div>
       <div className="w-full">

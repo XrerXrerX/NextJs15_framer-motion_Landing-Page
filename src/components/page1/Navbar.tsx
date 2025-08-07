@@ -1,187 +1,292 @@
-'use client'
-import React, { useState, useEffect } from 'react';
+/** @format */
+
+"use client";
+import React, { useState, useEffect } from "react";
 
 export default function Navbar() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+  // Handle scroll effect and hydration
+  useEffect(() => {
+    setIsMounted(true);
 
-    const handleBackgroundClick = (e) => {
-        // Only close if clicked directly on the background
-        if (e.target.id === "modalBackground") {
-            closeModal();
-        }
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsNavbarVisible(false);
+      } else {
+        setIsNavbarVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
-    // Close modal on scroll
-    useEffect(() => {
-        const handleScroll = () => {
-            if (isModalOpen) {
-                closeModal();
-            }
-        };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [isModalOpen]);
+  // Prevent hydration mismatch by not rendering dynamic content until mounted
+  if (!isMounted) {
     return (
-        <nav className="p-4 shadow-md bg-[#000000]">
-            <div className="container mx-auto flex items-center justify-between">
-                {/* Logo on the Left */}
-                <div className="flex items-center">
-                    <img src="/lgic.png" alt="Logo" className="h-12 w-auto mr-4" />
-                </div>
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-gradient-to-r from-slate-900/95 via-blue-600/30 to-slate-900/95 backdrop-blur-md shadow-2xl shadow-blue-500/20"
+            : "bg-gradient-to-r from-slate-900/80 via-[#29aaf6]/20 to-slate-900/80 backdrop-blur-sm"
+        } ${isNavbarVisible ? "translate-y-0" : "-translate-y-full"}`}
+      >
+        {/* Animated Stars Background */}
+        <div
+          className="absolute inset-0 overflow-hidden pointer-events-none"
+          suppressHydrationWarning
+        >
+          {isMounted &&
+            [...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute animate-pulse"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 3}s`,
+                  animationDuration: `${2 + Math.random() * 3}s`,
+                }}
+              >
+                <div className="w-1 h-1 bg-white rounded-full shadow-lg shadow-white/50"></div>
+              </div>
+            ))}
+        </div>
 
-                {/* Centered Menu */}
-                <div className="hidden md:flex space-x-9 text-lg text-gray-700 ml-40">
-                    <a href="#" className=""><p className="hover:text-white">Beranda</p></a>
-                    <a href="#" onClick={openModal} className="cursor-pointer"><p className="hover:text-white">Layanan&nbsp;  </p></a>
-                    {/* <a href="#" className=""><p className="hover:text-white">Portfolio</p></a> */}
-                    <a href="#" className=""><p className="hover:text-white">Kontak</p></a>
-                    {/* <a href="#" className=""><p className="hover:text-white">Konsultasi Gratis</p></a> */}
-                </div>
-
-                {/* Right Button with Icon */}
-                <div className="flex items-center">
-                    <button className="flex items-center space-x-2 text-white px-4 py-2 rounded-full hover:bg-midnight gap-2">
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="h-5 w-5">
-                        <path d="M13 10h7v7h-7zM4 4h7v7H4z" />
-                        <path fill="none" d="M0 0h24v24H0z" />
-                    </svg> */}
-                        <div>
-                            <p className="text-2xl lg:block"><span>Discuss Project</span></p>
-                        </div>
-                        <img src="/arrow.png" alt="Logo" className="h-6 w-auto mr-4" />
-
-                    </button>
-                </div>
+        <div className="container mx-auto flex items-center 2xl:justify-around xl:justify-around lg:justify-around md:justify-around xs:justify-around sm:justify-around p-4 relative">
+          {/* Logo with cosmic glow */}
+          <div className="flex items-center group">
+            <div className="relative">
+              <img
+                src="/lgic.png"
+                alt="Logo"
+                className="h-12 w-auto mr-4 transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-xl group-hover:bg-purple-400/30 transition-all duration-300"></div>
             </div>
-            {/* Modal */}
-            {isModalOpen && (
-                <div
-                    id="modalBackground"
-                    className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-start justify-center z-50 pt-12 top-5"
-                    onClick={handleBackgroundClick}
-                >
-                    <div className="bg-custom-modal border border-slate-700 p-6 rounded-lg shadow-lg w-11/12 relative top-0 place-items-center">
-                        <button
-                            onClick={closeModal}
-                            className="absolute top-1 right-3 text-gray-400 hover:text-gray-200 w-5"
-                        >
-                            &times;
-                        </button>
-                        <div className="grid grid-cols-4 gap-4 text-center">
-                            <div className="p-4 bg-transparent rounded-lg  cursor-pointer flex items-start  hover:bg-stone-800"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="1em"
-                                    height="1em"
-                                    viewBox="0 0 28 28" // Increased the viewBox size for padding
-                                    className="h-16 w-16 mr-3 mt-2"
-                                >
-                                    {/* Outer border with padding */}
-                                    <rect x="0" y="0" width="24" height="24" rx="3" fill="none" stroke="#909090" strokeWidth="0.4 "
-                                    />
-                                    <g fill="#909090">
-                                        <path
-                                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
-                                        <path d="M21 16v3a2 2 0 0 1-1.85 1.995L19 21h-6v-5zm-10-6v11H5a2 2 0 0 1-1.995-1.85L3 19v-9zm8-7a2 2 0 0 1 1.995 1.85L21 5v9h-8V3zm-8 0v5H3V5a2 2 0 0 1 1.85-1.995L5 3z" />
-                                    </g>
-                                </svg>
+          </div>
 
-                                <div > {/* Add hover:text-white here */}
-                                    <p className="text-2xl text-gray-300  text-left">Website Development</p>
-                                    <p className="text-xxs text-gray-400 text-left ">Membangun Situs Yang Responsive Dan Inovatif <br />
-                                        Yang Siap Memenuhi Semua Kebutuhan Bisnis Anda.</p>
-                                </div>
-                            </div>
+          {/* Centered Menu with cosmic effects */}
+          <div className="hidden lg:flex space-x-12 text-lg relative">
+            <a href="#" className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Beranda
+                </span>
+              </p>
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 group-hover:w-full transition-all duration-300"></div>
+            </a>
 
+            <a href="#layanan" className="cursor-pointer group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  Layanan
+                </span>
+                <span className="ml-1 text-xs">✨</span>
+              </p>
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></div>
+            </a>
 
+            <a href="#portofolio" className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  Portofolio
+                </span>
+              </p>
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+            </a>
+            <a href="#explore" className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-emerald-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+                <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
+                  Explore
+                </span>
+              </p>
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-400 group-hover:w-full transition-all duration-300"></div>
+            </a>
 
-                            <div className="p-4 bg-transparent rounded-lg hover:text-white cursor-pointer flex items-start hover:bg-stone-800">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="1em"
-                                    height="1em"
-                                    viewBox="0 0 28 28" // Increased the viewBox size for padding
-                                    className="h-16 w-16 mr-3 mt-2"
-                                    fill="currentColor" // Use currentColor to inherit the text color
-                                >
-                                    <g fill="none">
-                                        <g fill="#909090" >
-                                            {/* Outer border with padding */}
-                                            <rect x="0" y="0" width="24" height="24" rx="3" fill="none" stroke="#909090" strokeWidth="0.4" /> {/* Outer rectangle */}
-                                            <path fill="#909090" d="M16.61 15.15c-.46 0-.84-.37-.84-.83s.38-.82.84-.82s.84.36.84.82s-.38.83-.84.83m-9.2 0c-.46 0-.84-.37-.84-.83s.38-.82.84-.82s.83.36.83.82s-.37.83-.83.83m9.5-5.01l1.67-2.88c.09-.17.03-.38-.13-.47c-.17-.1-.38-.04-.45.13l-1.71 2.91A10.15 10.15 0 0 0 12 8.91c-1.53 0-3 .33-4.27.91L6.04 6.91a.334.334 0 0 0-.47-.13c-.17.09-.22.3-.13.47l1.66 2.88C4.25 11.69 2.29 14.58 2 18h20c-.28-3.41-2.23-6.3-5.09-7.86"
-                                            />
-                                        </g>
-                                    </g>
-                                </svg>
-                                <div>
-                                    <p className="text-2xl text-gray-300  text-left">Mobile Apps</p>
-                                    <p className="text-xxs text-gray-400 text-left">Menyiapkan APlikasi Mobile Yang Mudah <br />
-                                        Di Gunkaan Sebagai Penunjang Bisnis Anda.</p>
-                                </div>
-                            </div>
+            <a href="#contact" className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Contact Me
+                </span>
+              </p>
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-400 group-hover:w-full transition-all duration-300"></div>
+            </a>
+          </div>
 
-                            <div className="p-4 bg-transparent rounded-lg hover:text-white cursor-pointer flex items-start hover:bg-stone-800">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="1em"
-                                    height="1em"
-                                    viewBox="0 0 28 28" // Increased the viewBox size for padding
-                                    className="h-16 w-16 mr-3 mt-2"
-                                >
-                                    <g fill="none">
-                                        <rect x="0" y="0" width="24" height="24" rx="3" fill="none" stroke="#909090" strokeWidth="0.4" /> {/* Outer rectangle */}
+          {/* Right Button with cosmic styling */}
+          <div className="flex items-center space-x-4">
+            <button className="group relative flex items-center space-x-3 text-white px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:scale-105">
+              {/* Cosmic background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-blue-600/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 rounded-full group-hover:from-purple-500/20 group-hover:via-pink-500/20 group-hover:to-blue-500/20 transition-all duration-300"></div>
 
-                                        <g fill="#909090">
-                                            <path fill="#909090" d="M10 5h4v14h-4zM5 19v-9h4v9zM7 5a2 2 0 1 0 0 4a2 2 0 0 0 0-4m8 0h4v4h-4zm4 5h-4v4h4z" />
+              {/* Border glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-400 p-[1px] group-hover:p-[2px] transition-all duration-300">
+                <div className="w-full h-full bg-slate-900 rounded-full"></div>
+              </div>
 
-                                        </g>
-                                    </g>
-                                </svg>
-                                <div>
-                                    <p className="text-2xl text-gray-300 text-left">Visual Design</p>
-                                    <p className="text-xxs text-gray-400 text-left">Memenuhi Kebutuhan Visual Untuk Branding <br />
-                                        Bisnis Anda Menjadi Lebih Hidup.</p>
-                                </div>
-                            </div>
+              {/* Content */}
+              <div className="relative flex items-center space-x-2">
+                <p className="text-lg font-medium bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Discuss Project
+                </p>
+                <img
+                  src="/arrow.png"
+                  alt="Arrow"
+                  className="h-5 w-auto transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
-                            <div className="p-4 bg-transparent rounded-lg hover:text-white cursor-pointer flex items-start hover:bg-stone-800">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="1em"
-                                    height="1em"
-                                    viewBox="0 0 28 28" // Increased the viewBox size for padding
-                                    className="h-16 w-16 mr-3 mt-2"
-                                >
-                                    <g fill="none">
-                                        <rect x="0" y="0" width="24" height="24" rx="3" fill="none" stroke="#909090" strokeWidth="0.4" /> {/* Outer rectangle */}
+  return (
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-gradient-to-r from-slate-900/95 via-blue-600/30 to-slate-900/95 backdrop-blur-md shadow-2xl shadow-blue-500/20"
+          : "bg-gradient-to-r from-slate-900/80 via-[#29aaf6]/20 to-slate-900/80 backdrop-blur-sm"
+      } ${isNavbarVisible ? "translate-y-0" : "-translate-y-full"}`}
+    >
+      {/* Animated Stars Background */}
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        suppressHydrationWarning
+      >
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
+          >
+            <div className="w-1 h-1 bg-white rounded-full shadow-lg shadow-white/50"></div>
+          </div>
+        ))}
+      </div>
 
-                                        <g fill="#909090">
-                                            <path fill="#909090" d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14" />
+      <div className="container mx-auto flex items-center 2xl:justify-around xl:justify-around lg:justify-around md:justify-around xs:justify-around sm:justify-around p-4 relative ">
+        {/* Logo with cosmic glow */}
+        <div className="flex items-center group">
+          <div className="relative">
+            <img
+              src="/lgic.png"
+              alt="Logo"
+              className="h-12 w-auto mr-4 transition-transform duration-300 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-purple-500/20 rounded-lg blur-xl group-hover:bg-purple-400/30 transition-all duration-300"></div>
+          </div>
+        </div>
 
-                                        </g>
-                                    </g>
-                                </svg>
-                                <div>
-                                    <p className="text-2xl text-gray-300 text-left">SEO</p>
-                                    <p className="text-xxs text-gray-400 text-left">Mengoptimasi Website Anda Untuk Tampil <br />
-                                        di Rank Teratas Mesin Pencarian.</p>
-                                </div>
-                            </div>
-                        </div>
+        {/* Centered Menu with cosmic effects */}
+        <div className="hidden lg:flex space-x-12 text-lg relative">
+          <a href="#" className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+            <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Beranda
+              </span>
+            </p>
+            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 group-hover:w-full transition-all duration-300"></div>
+          </a>
 
-                    </div>
-                </div>
+          <a href="#layanan" className="cursor-pointer group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+            <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Layanan
+              </span>
+              <span className="ml-1 text-xs">✨</span>
+            </p>
+            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></div>
+          </a>
 
-            )
-            }
-        </nav >
-    )
+          <a href="#portofolio" className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+            <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Portofolio
+              </span>
+            </p>
+            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+          </a>
+          <a href="#explore" className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-emerald-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+            <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+              <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
+                Explore
+              </span>
+            </p>
+            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-400 group-hover:w-full transition-all duration-300"></div>
+          </a>
+
+          <a href="#contact" className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+            <p className="relative text-gray-300 hover:text-white transition-all duration-300 group-hover:scale-105">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Contact Me
+              </span>
+            </p>
+            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-400 group-hover:w-full transition-all duration-300"></div>
+          </a>
+        </div>
+
+        {/* Right Button with cosmic styling */}
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://wa.me/+6285788818811"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center space-x-3 text-white px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+          >
+            {/* Cosmic background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-blue-600/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 rounded-full group-hover:from-purple-500/20 group-hover:via-pink-500/20 group-hover:to-blue-500/20 transition-all duration-300"></div>
+
+            {/* Border glow */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-400 p-[1px] group-hover:p-[2px] transition-all duration-300">
+              <div className="w-full h-full bg-slate-900 rounded-full"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative flex items-center space-x-2">
+              <p className="text-lg font-medium bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Discuss Project
+              </p>
+              <img
+                src="/arrow.png"
+                alt="Arrow"
+                className="h-5 w-auto transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
 }
-
