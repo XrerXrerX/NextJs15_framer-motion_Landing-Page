@@ -84,7 +84,7 @@ export default function PageTen() {
               </a>
 
               <a
-                href="https://wa.me/+6285788818811"
+                href="https://wa.me/+6285888818811"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-sky-500/10 to-blue-600/10 border border-sky-500/20 rounded-xl p-4 hover:from-sky-500/20 hover:to-blue-600/20 transition-all duration-300 cursor-pointer"
@@ -118,7 +118,7 @@ export default function PageTen() {
             {/* Action Buttons */}
             <div className="space-y-4">
               <a
-                href="https://wa.me/+6285788818811"
+                href="https://wa.me/+6285888818811"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
@@ -140,7 +140,7 @@ export default function PageTen() {
               </a>
 
               <a
-                href="https://wa.me/+6285788818811"
+                href="https://wa.me/+6285888818811"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-transparent border-2 border-sky-500/50 hover:border-sky-500 text-sky-400 hover:text-white font-semibold py-4 px-6 rounded-xl hover:bg-sky-500/10 transition-all duration-300 flex items-center justify-center space-x-2"

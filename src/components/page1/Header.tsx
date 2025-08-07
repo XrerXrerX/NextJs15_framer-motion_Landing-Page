@@ -143,7 +143,7 @@ export default function Header() {
       </div>
       <div className="flex justify-center space-x-4 2xl:mt-12 xl:mt-12 lg:mt-12 md:mt-12 xs:mt-6 sm:mt-6">
         <a
-          href="https://wa.me/+6285788818811"
+          href="https://wa.me/+6285888818811"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 bg-transparent text-white px-12 py-4 rounded-md border border-sky-500 shadow-md transition 
@@ -158,7 +158,7 @@ export default function Header() {
         </a>
 
         <a
-          href="https://wa.me/+6285788818811"
+          href="https://wa.me/+6285888818811"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 bg-gradient-to-r from-sky-500 via-sky-600 to-sky-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-sky-300 dark:focus:ring-sky-800 shadow-lg shadow-sky-500/50 dark:shadow-lg dark:shadow-sky-800/80 text-white 

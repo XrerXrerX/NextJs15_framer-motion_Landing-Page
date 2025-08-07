@@ -259,7 +259,7 @@ export default function Navbar() {
         {/* Right Button with cosmic styling */}
         <div className="flex items-center space-x-4">
           <a
-            href="https://wa.me/+6285788818811"
+            href="https://wa.me/+6285888818811"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center space-x-3 text-white px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
