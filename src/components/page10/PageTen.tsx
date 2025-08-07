@@ -3,13 +3,6 @@
 "use client";
 
 import React from "react";
-import {
-  motion,
-  useInView,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
 
 export default function PageTen() {
   return (

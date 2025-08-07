@@ -1,6 +1,5 @@
 /** @format */
 
-import { div } from "framer-motion/client";
 import Marquee from "react-fast-marquee";
 
 export default function Marque() {

@@ -3,13 +3,7 @@
 "use client";
 
 import React from "react";
-import {
-  motion,
-  useInView,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -25,7 +19,7 @@ export default function Footer() {
             </p>
           </div>
           <p className="text-lg italic">
-            "We growing up your business with more precious way."
+            &ldquo;We growing up your business with more precious way.&rdquo;
           </p>
         </div>
         <div className="col-span-1">

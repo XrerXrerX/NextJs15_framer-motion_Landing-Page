@@ -25,7 +25,7 @@ export default function Header() {
     }, 2000); // Change word every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   return (
     <div className="text-white pt-24 2xl:mt-12 xl:mt-12 lg:mt-[30px] md:mt-[50px] xs:mt-[72px] sm:mt-[60px] rounded-lg flex flex-col items-center relative overflow-hidden">
