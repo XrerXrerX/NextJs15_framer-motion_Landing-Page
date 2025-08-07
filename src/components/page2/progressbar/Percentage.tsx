@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 export default function Percentage() {
@@ -30,8 +30,16 @@ export default function Percentage() {
   };
 
   // Create refs for each metric
-  const refs = metrics.map(() => useRef(null));
-  const inViewRefs = refs.map((ref) => useInView(ref, { once: false }));
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+
+  const inView1 = useInView(ref1, { once: false });
+  const inView2 = useInView(ref2, { once: false });
+  const inView3 = useInView(ref3, { once: false });
+
+  const refs = [ref1, ref2, ref3];
+  const inViewRefs = [inView1, inView2, inView3];
 
   return (
     <div className="flex justify-around items-center 2xl:h-48 xl:h-48 lg:h-48 md:h-48 xs:h-36 sm:h-48 mt-4 border border-slate-600 rounded-xl 2xl:p-8 xl:p-8 lg:p-8 md:p-8 xs:p-1 sm:p-4 relative">
