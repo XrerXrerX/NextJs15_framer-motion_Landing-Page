@@ -130,13 +130,16 @@ export default function Header() {
         <br />
         di Era Digital
       </p>
-      <div className="sm:text-xxss md:text-sm lg:text-base xl:text-xl 2xl:text-xl xs:text-xxss 2xl:mt-12 xl:mt-12 lg:mt-12 md:mt-6 xs:mt-2 sm:mt-6 sm:block hidden">
+      <div className="sm:text-xxss md:text-sm lg:text-base xl:text-xl 2xl:text-xl xs:text-xxss 2xl:mt-12 xl:mt-4 lg:mt-12 md:mt-6 xs:mt-2 sm:mt-6 sm:block hidden 2xl:w-3/4 xl:w-11/12 lg:w-3/4 md:w-11/12 xs:w-11/12 sm:w-11/12">
         <p className="text-center mx-4 my-4 text-slate-300 ">
           <span>
-            Kami memperhatikan Branding dan Representasi Bisnis yang
-            profesional, sehingga memenuhi berbagai <br />
-            Anda dengan desain yang menawan, fitur canggih, dan teknologi
-            terkini
+            <strong>Lintas Inovasi Global (LIGAL)</strong> adalah perusahaan
+            yang menyediakan kenyamanan bagi client yang ingin berkembang
+            melalui dunia digitalisasi. Kami memperhatikan Branding dan
+            Representasi Bisnis yang profesional, sehingga memenuhi berbagai
+            kebutuhan digital Anda dengan desain yang menawan, fitur canggih,
+            dan teknologi terkini. Spesialis jasa pembuatan website, mobile
+            apps, SEO, dan solusi digital terpercaya di Indonesia.
           </span>
           🚀.
         </p>

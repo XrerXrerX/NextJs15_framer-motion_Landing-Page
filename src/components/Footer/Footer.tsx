@@ -10,15 +10,25 @@ export default function Footer() {
       <div className="grid grid-cols-2 sm:grid-cols-6 gap-8 px-6">
         <div className="col-span-3 sm:col-span-3 ">
           <div className="flex flex-row items-center justify-start">
-            <img src="/footer/footer.png" alt="Logo PT" className=" h-auto" />
-            <p className="text-slate-200 ml-3">
+            <img
+              src="/footer/footer.png"
+              alt="Logo Lintas Inovasi Global"
+              className=" h-auto"
+            />
+            <h2 className="text-slate-200 ml-3 text-xl font-semibold">
               LIGAL
               <br />
               PT.LINTAS INOVASI GLOBAL
-            </p>
+            </h2>
           </div>
           <p className="text-lg italic">
             &ldquo;We growing up your business with more precious way.&rdquo;
+          </p>
+          <p className="text-slate-300 mt-2 text-sm">
+            Perusahaan yang menyediakan kenyamanan bagi client yang ingin
+            berkembang melalui dunia digitalisasi. Spesialis jasa pembuatan
+            website, mobile apps, SEO, dan solusi digital terpercaya di
+            Indonesia.
           </p>
         </div>
         <div className="col-span-1">
